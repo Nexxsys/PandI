@@ -40,36 +40,51 @@ sudo git clone https://github.com/danielmiessler/SecLists /opt/SecLists || true
 sudo gem install logger stringio winrm builder erubi gssapi gyoku httpclient logging little-plugger nori rubyntlm winrm-fs evil-winrm
 
 # Add alias to ~/.bashrc
-echo 'alias xclip="xclip -selection c"' >> ~/.bashrc
-echo 'alias vulscanup="sudo bash /usr/share/nmap/scripts/vulscan/update.sh"' >> ~/.bashrc
-echo 'alias removecomments "source /opt/removecomments.sh"' >> ~/.bashrc
-echo 'alias cme="crackmapexec"' >> ~/.bashrc
-echo 'alias chmox="chmod"' >> ~/.bashrc
+if [ -n "$BASH_VERSION" ]; then
+	echo 'alias xclip="xclip -selection c"' >> ~/.bashrc
+	echo 'alias vulscanup="sudo bash /usr/share/nmap/scripts/vulscan/update.sh"' >> ~/.bashrc
+	echo 'alias removecomments "source /opt/removecomments.sh"' >> ~/.bashrc
+	echo 'alias cme="crackmapexec"' >> ~/.bashrc
+	echo 'alias chmox="chmod"' >> ~/.bashrc
+	echo 'eval "$(register-python-argcomplete pipx)"' >> ~/.bashrc
+elif [ -n "$ZSH_VERSION" ]; then
+	echo 'alias xclip="xclip -selection c"' >> ~/.zshrc
+	echo 'alias vulscanup="sudo bash /usr/share/nmap/scripts/vulscan/update.sh"' >> ~/.zshrc
+	echo 'alias removecomments "source /opt/removecomments.sh"' >> ~/.zshrc
+	echo 'alias cme="crackmapexec"' >> ~/.zshrc
+	echo 'alias chmox="chmod"' >> ~/.zshrc
+	echo 'eval "$(register-python-argcomplete pipx)"' >> ~/.zshrc
+fi
+
+# Determine user's shell
+if [ -n "$BASH_VERSION" ]; then
+    # Add aliases to ~/.bashrc
+    cat <<EOF >> ~/.bashrc
 
 # Add aliases to ~/.bashrc
-cat <<EOF >> ~/.bashrc
-
-# Add the following aliases
-# ||| Alias's for multiple directory listing commands
-alias la='lsd -Alh' # show hidden files
-alias ls='lsd --color=auto'
-alias la='lsd -a'
-alias lx='lsd -lXBh' # sort by extension
-alias lk='lsd -lSrh' # sort by size
-alias lc='lsd -lcrh' # sort by change time
-alias lu='lsd -lurh' # sort by access time
-alias lr='lsd -lRh' # recursive ls
-alias lt='lsd -ltrh' # sort by date
-alias lm='lsd -alh |more' # pipe through 'more'
-alias lw='lsd -xAh' # wide listing format
-alias ll='lsd -alFh' # long listing format
-alias labc='lsd -lap' #alphabetical sort
-alias lf="lsd -l | egrep -v '^d'" # files only
-alias ldir="lsd -l | egrep '^d'" # directories only
-alias l='lsd'
-alias l.="lsd -A | egrep '^\.'"
+alias xclip="xclip -selection c"
+alias vulscanup="sudo bash /usr/share/nmap/scripts/vulscan/update.sh"
+alias removecomments="source /opt/removecomments.sh"
+alias cme="crackmapexec"
+alias chmox="chmod"
+eval "\$(register-python-argcomplete pipx)"
 
 EOF
+elif [ -n "$ZSH_VERSION" ]; then
+    # Add aliases to ~/.zshrc
+    cat <<EOF >> ~/.zshrc
+
+# Add aliases to ~/.zshrc
+alias xclip="xclip -selection c"
+alias vulscanup="sudo bash /usr/share/nmap/scripts/vulscan/update.sh"
+alias removecomments="source /opt/removecomments.sh"
+alias cme="crackmapexec"
+alias chmox="chmod"
+eval "\$(register-python-argcomplete pipx)"
+
+EOF
+fi
+
 # Clean up
 sudo apt autoremove -y
 
@@ -94,5 +109,5 @@ sudo python3 "$build_dir/githubdownload.py" "BloodHoundAD/BloodHound" "BloodHoun
 sudo rm -rf "$build_dir"
 
 # update the db
-sudo updatedb 2>dev/null
+sudo updatedb 2>/dev/null
 
