@@ -17,3 +17,6 @@
 * Kali Linux 2024_01
 * MX Linux - converted into a general attackbox for practicing for the CompTIA Pentest+ Exam
 
+Diagram
+![pentest-lab-diagram](https://github.com/Nexxsys/PandI/blob/main/InfoSec%20Projects/Pentest-Lab.drawio.png)
+
