@@ -1,8 +1,4 @@
-# vowels = 'AEIOUaeiou'
-# src = "/home/nexxsys/Downloads/rockyou.txt"
 src = "/usr/share/wordlists/rockyou.txt"
-# src = "/home/nexxsys/test.txt"
-# stringVal = 'Oh You Ate One Too'
 
 vowel_replc = {
 	'A':'@',
