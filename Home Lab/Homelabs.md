@@ -1,6 +1,7 @@
 # Homelabs
 
 I have create a number of home labs and used them for various learning projects.  These were original setup using VirtualBox, but I have switched to VMWare Wokstation 17 to manage my VM and labs.
+ - [Pentest Lab](https://github.com/Nexxsys/PandI/tree/main/InfoSec%20Projects#pentest-virtual-lab)
 
 ## Labs
 
