@@ -15,7 +15,7 @@
 * Metasploitable 3 (Linux)
 * Metasploitable 3 (Windows)
 * Kali Linux 2024_01
-* MX Linux - converted into a general attackbox for practicing for the CompTIA Pentest+ Exam
+* MX Linux - converted into a general attackbox for practicing for the CompTIA Pentest+ Exam [REMOVED]
 
 #### Diagram
 
