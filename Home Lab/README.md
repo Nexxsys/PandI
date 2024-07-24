@@ -6,7 +6,7 @@ I have create a number of home labs and used them for various learning projects.
 This script is for setting up a new environment for pentesting with some of the tools that I like
 - gethubdownload.py
 Is a dependency for the gemini-setup.sh script
--lsd_bashzsh_aliases.txt
+- lsd_bashzsh_aliases.txt
 This is the list of LSD aliases for bashrc or zshrc
 
 ## Scripts
