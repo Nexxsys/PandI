@@ -2,6 +2,10 @@
 
 I have create a number of home labs and used them for various learning projects.  These were original setup using VirtualBox, but I have switched to VMWare Wokstation 17 to manage my VM and labs.
 
+
+## Scripts
+The gemini-setup.sh script is for setting up a virtual machine, like MX Linux, with some of the base tools that I like to have installed with any linux virtual or physical machine.  The githubdownload.py file was borrowed from [IppSec's Parrot Build Repo](https://github.com/IppSec/parrot-build)
+
 - gemini-setup.sh
 This script is for setting up a new environment for pentesting with some of the tools that I like
 - gethubdownload.py
@@ -9,8 +13,6 @@ Is a dependency for the gemini-setup.sh script
 - lsd_bashzsh_aliases.txt
 This is the list of LSD aliases for bashrc or zshrc
 
-## Scripts
-The gemini-setup.sh script is for setting up a virtual machine, like MX Linux, with some of the base tools that I like to have installed with any linux virtual or physical machine.  The githubdownload.py file was borrowed from [IppSec's Parrot Build Repo](https://github.com/IppSec/parrot-build)
 ## Labs
 
 ### Docker Playground
