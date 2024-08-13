@@ -22,9 +22,9 @@
 `echo "alias bat='batcat'"`
 
 # Remove libre office
-`sudo apt-get remove --purge libreoffice*
-sudo apt-get clean
-sudo apt-get autoremove`
+`sudo apt-get remove --purge libreoffice\*`
+`sudo apt-get clean`
+`sudo apt-get autoremove`
 
 # install SSH Server
 `sudo apt-get install openssh-server`
