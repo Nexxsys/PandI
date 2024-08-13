@@ -23,6 +23,9 @@ sudo apt-get remove --purge libreoffice*
 sudo apt-get clean
 sudo apt-get autoremove
 
+# install SSH Server
+`sudo apt-get install openssh-server`
+
 # Optional Components
 ## Install Homebrew 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
