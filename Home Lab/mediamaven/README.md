@@ -10,7 +10,7 @@
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
 # Additional Components
-`sudo apt update && sudo apt install git python3-pip sublime-text chromium synaptic apt-transport-https xclip terminator cifs-utils byobu fzf docker.io docker-compose tldr btop openssh-server zsh -y`
+`sudo apt update && sudo apt install git python3-pip sublime-text chromium synaptic apt-transport-https xclip terminator cifs-utils byobu fzf docker.io docker-compose docker-compose-v2 tldr btop openssh-server zsh -y`
 
 # Install Jellyfin
 `curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash`
