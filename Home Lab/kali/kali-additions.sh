@@ -49,6 +49,24 @@ alias removecomments=\"source /opt/removecomments.sh\"
 alias cme=\"crackmapexec\"
 alias chmox=\"chmod\"
 eval \"\$(register-python-argcomplete pipx)\"
+# LSD Aliases
+alias la='lsd -Alh' # show hidden files
+alias ls='lsd --color=auto'
+alias la='lsd -a'
+alias lx='lsd -lXBh' # sort by extension
+alias lk='lsd -lSrh' # sort by size
+alias lc='lsd -lcrh' # sort by change time
+alias lu='lsd -lurh' # sort by access time
+alias lr='lsd -lRh' # recursive ls
+alias lt='lsd -ltrh' # sort by date
+alias lm='lsd -alh |more' # pipe through 'more'
+alias lw='lsd -xAh' # wide listing format
+alias ll='lsd -alFh' # long listing format
+alias labc='lsd -lap' #alphabetical sort
+alias lf="lsd -l | egrep -v '^d'" # files only
+alias ldir="lsd -l | egrep '^d'" # directories only
+alias l='lsd'
+alias l.="lsd -A | egrep '^\.'"
 "
 
 # Add aliases to the appropriate shell configuration file
