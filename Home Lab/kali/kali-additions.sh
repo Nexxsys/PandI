@@ -60,14 +60,17 @@ else
     echo "install_homebrew.sh not found!"
     exit 1
 fi
+
 # Update zsh shell
 # Append the command to the .zshrc file for the current user
 (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/$USER/.zshrc
 
 # Run the command to set the environment variables for brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # install gcc
-brew install gcc lds fzf 
+brew install gcc lsd fzf jless powerlevel10k
+
 # update brew
 brew update
 
