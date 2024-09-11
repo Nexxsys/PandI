@@ -13,7 +13,7 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo sed -i '/deb https:\/\/deb.parrot.sh\/parrot lory main contrib non-free/s/^/#/' /etc/apt/sources.list
 
 # Install necessary packages
-sudo apt install -y pipx gdb git sublime-text synaptic apt-transport-https xclip terminator cifs-utils byobu exiftool jq ruby-full docker.io docker-compose locate tldr btop
+sudo apt install -y pipx gdb git sublime-text synaptic apt-transport-https xclip terminator cifs-utils byobu exiftool jq ruby-full docker.io docker-compose locate tldr btop thefuck
 # Ensure pipx path is available
 pipx ensurepath
 
@@ -60,6 +60,16 @@ else
     echo "install_homebrew.sh not found!"
     exit 1
 fi
+# Update zsh shell
+# Append the command to the .zshrc file for the current user
+(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/$USER/.zshrc
+
+# Run the command to set the environment variables for brew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# install gcc
+brew install gcc lds fzf 
+# update brew
+brew update
 
 # Clone useful GitHub repositories
 sudo git clone https://github.com/Flangvik/SharpCollection /opt/SharpCollection || true
@@ -67,8 +77,6 @@ sudo git clone https://github.com/danielmiessler/SecLists /opt/SecLists || true
 
 # Install tools from Gems
 sudo gem install logger stringio winrm builder erubi gssapi gyoku httpclient logging little-plugger nori rubyntlm winrm-fs evil-winrm
-
-#!/bin/bash
 
 # Define the shell aliases
 shell_aliases="
