@@ -13,7 +13,7 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo sed -i '/deb https:\/\/deb.parrot.sh\/parrot lory main contrib non-free/s/^/#/' /etc/apt/sources.list
 
 # Install necessary packages
-sudo apt install -y pipx gdb git sublime-text synaptic apt-transport-https xclip terminator cifs-utils byobu lsd exiftool jq ruby-full docker.io docker-compose locate
+sudo apt install -y pipx gdb git sublime-text synaptic apt-transport-https xclip terminator cifs-utils byobu exiftool jq ruby-full docker.io docker-compose locate tldr btop
 
 # Ensure pipx path is available
 pipx ensurepath
@@ -23,6 +23,8 @@ pipx ensurepath
 pipx install git+https://github.com/Pennyw0rth/NetExec || true
 # crackmapexec
 pipx install git+https://github.com/Porchetta-Industries/CrackMapExec.git || true
+# updog
+pipx install updog || true
 
 # impacket
 pipx install git+https://github.com/fortra/impacket.git || true
