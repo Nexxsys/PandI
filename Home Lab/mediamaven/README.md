@@ -18,7 +18,7 @@
 # If I need to install ffmpeg
 `wget https://github.com/jellyfin/jellyfin-ffmpeg/releases/download/v6.0.1-8/jellyfin-ffmpeg6_6.0.1-8-bookworm_arm64.deb`
 
-# add bat alias fof batcat
+# add bat alias for batcat (not always required)
 `echo "alias bat='batcat'"`
 
 # Remove libre office
