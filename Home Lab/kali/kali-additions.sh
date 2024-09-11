@@ -31,20 +31,34 @@ pipx install git+https://github.com/ly4k/Certipy.git || true
 # oletools
 pipx install oletools
 
-# Install Homebrew using the official installation script
-echo "Installing Homebrew..."
+# # Install Homebrew using the official installation script
+# echo "Installing Homebrew..."
 
-# Run the Homebrew install script via curl
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# # Run the Homebrew install script via curl
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Check if Homebrew was successfully installed
-if command -v brew >/dev/null 2>&1; then
-    echo "Homebrew installation successful!"
-    # Update Homebrew
-    echo "Updating Homebrew..."
-    brew update
+# # Check if Homebrew was successfully installed
+# if command -v brew >/dev/null 2>&1; then
+#     echo "Homebrew installation successful!"
+#     # Update Homebrew
+#     echo "Updating Homebrew..."
+#     brew update
+# else
+#     echo "Homebrew installation failed!"
+# fi
+# Path to the install_homebrew.sh script
+INSTALL_SCRIPT="./install_homebrew.sh"
+
+# Check if the install_homebrew.sh script exists
+if [[ -f "$INSTALL_SCRIPT" ]]; then
+    echo "Found install_homebrew.sh. Running the script..."
+    # Make the install_homebrew.sh script executable
+    chmod +x "$INSTALL_SCRIPT"
+    # Run the install_homebrew.sh script
+    "$INSTALL_SCRIPT"
 else
-    echo "Homebrew installation failed!"
+    echo "install_homebrew.sh not found!"
+    exit 1
 fi
 
 # Clone useful GitHub repositories
@@ -113,21 +127,6 @@ fi
 
 # Clean up
 sudo apt autoremove -y
-
-# Path to the install_homebrew.sh script
-INSTALL_SCRIPT="./install_homebrew.sh"
-
-# Check if the install_homebrew.sh script exists
-if [[ -f "$INSTALL_SCRIPT" ]]; then
-    echo "Found install_homebrew.sh. Running the script..."
-    # Make the install_homebrew.sh script executable
-    chmod +x "$INSTALL_SCRIPT"
-    # Run the install_homebrew.sh script
-    "$INSTALL_SCRIPT"
-else
-    echo "install_homebrew.sh not found!"
-    exit 1
-fi
 
 # Create temporary build directory
 build_dir=$(mktemp -d)
