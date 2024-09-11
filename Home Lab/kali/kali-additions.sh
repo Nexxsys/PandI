@@ -41,33 +41,55 @@ sudo git clone https://github.com/danielmiessler/SecLists /opt/SecLists || true
 # Install tools from Gems
 sudo gem install logger stringio winrm builder erubi gssapi gyoku httpclient logging little-plugger nori rubyntlm winrm-fs evil-winrm
 
-# Define aliases based on the shell
+#!/bin/bash
+
+# Define the shell aliases
 shell_aliases="
+# Clipboard alias
 alias xclip=\"xclip -selection c\"
+# Vulnerability scan update
 alias vulscanup=\"sudo bash /usr/share/nmap/scripts/vulscan/update.sh\"
+# Remove comments script
 alias removecomments=\"source /opt/removecomments.sh\"
+# CrackMapExec alias
 alias cme=\"crackmapexec\"
+# chmod alias typo correction
 alias chmox=\"chmod\"
+# Pipx auto-completion
 eval \"\$(register-python-argcomplete pipx)\"
-# LSD Aliases
+# LSD Aliases for various listing formats
 alias la='lsd -Alh' # show hidden files
 alias ls='lsd --color=auto'
-alias la='lsd -a'
 alias lx='lsd -lXBh' # sort by extension
 alias lk='lsd -lSrh' # sort by size
 alias lc='lsd -lcrh' # sort by change time
 alias lu='lsd -lurh' # sort by access time
 alias lr='lsd -lRh' # recursive ls
 alias lt='lsd -ltrh' # sort by date
-alias lm='lsd -alh |more' # pipe through 'more'
+alias lm='lsd -alh | more' # pipe through more
 alias lw='lsd -xAh' # wide listing format
 alias ll='lsd -alFh' # long listing format
-alias labc='lsd -lap' #alphabetical sort
-alias lf="lsd -l | egrep -v '^d'" # files only
-alias ldir="lsd -l | egrep '^d'" # directories only
+alias labc='lsd -lap' # alphabetical sort
+alias lf=\"lsd -l | egrep -v '^d'\" # files only
+alias ldir=\"lsd -l | egrep '^d'\" # directories only
 alias l='lsd'
-alias l.="lsd -A | egrep '^\.'"
+alias l.=\"lsd -A | egrep '^\.'\"
 "
+
+# Check if the aliases already exist in .zshrc
+if ! grep -q "alias xclip" ~/.zshrc; then
+  echo "Adding aliases to ~/.zshrc"
+  echo "$shell_aliases" >> ~/.zshrc
+else
+  echo "Aliases already exist in ~/.zshrc"
+fi
+
+# Reload .zshrc to apply the changes
+echo "Reloading .zshrc"
+source ~/.zshrc
+
+echo "Aliases successfully added and applied."
+
 
 # Add aliases to the appropriate shell configuration file
 if [ -n "$BASH_VERSION" ]; then
