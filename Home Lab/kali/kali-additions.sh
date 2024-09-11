@@ -14,7 +14,6 @@ sudo sed -i '/deb https:\/\/deb.parrot.sh\/parrot lory main contrib non-free/s/^
 
 # Install necessary packages
 sudo apt install -y pipx gdb git sublime-text synaptic apt-transport-https xclip terminator cifs-utils byobu exiftool jq ruby-full docker.io docker-compose locate tldr btop
-
 # Ensure pipx path is available
 pipx ensurepath
 
@@ -25,7 +24,6 @@ pipx install git+https://github.com/Pennyw0rth/NetExec || true
 pipx install git+https://github.com/Porchetta-Industries/CrackMapExec.git || true
 # updog
 pipx install updog || true
-
 # impacket
 pipx install git+https://github.com/fortra/impacket.git || true
 # certipy-ad 
@@ -33,6 +31,21 @@ pipx install git+https://github.com/ly4k/Certipy.git || true
 # oletools
 pipx install oletools
 
+# Install Homebrew using the official installation script
+echo "Installing Homebrew..."
+
+# Run the Homebrew install script via curl
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Check if Homebrew was successfully installed
+if command -v brew >/dev/null 2>&1; then
+    echo "Homebrew installation successful!"
+    # Update Homebrew
+    echo "Updating Homebrew..."
+    brew update
+else
+    echo "Homebrew installation failed!"
+fi
 
 # Clone useful GitHub repositories
 sudo git clone https://github.com/Flangvik/SharpCollection /opt/SharpCollection || true
