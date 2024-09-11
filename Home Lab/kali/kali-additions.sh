@@ -114,6 +114,20 @@ fi
 # Clean up
 sudo apt autoremove -y
 
+# Path to the install_homebrew.sh script
+INSTALL_SCRIPT="./install_homebrew.sh"
+
+# Check if the install_homebrew.sh script exists
+if [[ -f "$INSTALL_SCRIPT" ]]; then
+    echo "Found install_homebrew.sh. Running the script..."
+    # Make the install_homebrew.sh script executable
+    chmod +x "$INSTALL_SCRIPT"
+    # Run the install_homebrew.sh script
+    "$INSTALL_SCRIPT"
+else
+    echo "install_homebrew.sh not found!"
+    exit 1
+fi
 
 # Create temporary build directory
 build_dir=$(mktemp -d)
